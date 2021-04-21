@@ -1,0 +1,42 @@
+{
+  "content": [
+    {
+      "name": "Author dashboard",
+      "description": "",
+      "id": "s300000520_5c4fa6584618f618e5cdbe32",
+      "owner": {
+        "id": 200254589
+      },
+      "migratedIds": [],
+      "rsid": "elsevier-bpdg-prod"
+    },
+    {
+      "name": "DC Dashboard",
+      "description": "",
+      "id": "s300000520_5c65196e0725626f444bfc03",
+      "owner": {
+        "id": 200254589
+      },
+      "migratedIds": [],
+      "rsid": "elsevier-bpdg-prod"
+    },
+    {
+      "name": "Author+DC dashboard",
+      "description": "",
+      "id": "s300000520_5efe5b30ffcd494282931839",
+      "owner": {
+        "id": 200254589
+      },
+      "migratedIds": [],
+      "rsid": "elsevier-bpdg-prod"
+    }
+  ],
+  "totalElements": 3,
+  "totalPages": 1,
+  "number": 0,
+  "numberOfElements": 3,
+  "firstPage": true,
+  "lastPage": true,
+  "sort": null,
+  "size": 10
+}

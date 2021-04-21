@@ -1,0 +1,18 @@
+{
+  "id": "variables/daterangemonth",
+  "title": "Month",
+  "name": "Month",
+  "type": "time",
+  "category": "Date",
+  "support": [
+    "oberon",
+    "dataWarehouse"
+  ],
+  "pathable": false,
+  "segmentable": true,
+  "reportable": [
+    "oberon"
+  ],
+  "supportsDataGovernance": false,
+  "multiValued": false
+}

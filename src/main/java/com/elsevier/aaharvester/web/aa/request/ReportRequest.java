@@ -12,7 +12,7 @@ import java.util.List;
 
 @Getter
 @NoArgsConstructor
-public class ReportsRequest {
+public class ReportRequest {
 
     @JsonProperty("rsid")
     private String rsId;

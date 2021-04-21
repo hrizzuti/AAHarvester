@@ -1,0 +1,94 @@
+{
+  "totalPages": 1,
+  "firstPage": true,
+  "lastPage": true,
+  "numberOfElements": 3,
+  "number": 0,
+  "totalElements": 3,
+  "columns": {
+    "dimension": {
+      "id": "variables/daterangemonth",
+      "type": "time"
+    },
+    "columnIds": [
+      "2",
+      "3",
+      "4",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  "rows": [
+    {
+      "itemId": "1210001",
+      "value": "Jan 2021",
+      "data": [
+        744,
+        31,
+        3310,
+        767,
+        28,
+        67157
+      ]
+    },
+    {
+      "itemId": "1210101",
+      "value": "Feb 2021",
+      "data": [
+        709,
+        27,
+        3551,
+        426,
+        13,
+        51828
+      ]
+    },
+    {
+      "itemId": "1210201",
+      "value": "Mar 2021",
+      "data": [
+        827,
+        30,
+        3496,
+        425,
+        25,
+        53007
+      ]
+    }
+  ],
+  "summaryData": {
+    "filteredTotals": [
+      2280,
+      88,
+      10357,
+      1618,
+      66,
+      171991
+    ],
+    "totals": [
+      2280,
+      88,
+      10357,
+      1618,
+      66,
+      171991
+    ],
+    "col-max": [
+      827,
+      31,
+      3551,
+      767,
+      28,
+      67157
+    ],
+    "col-min": [
+      709,
+      27,
+      3310,
+      425,
+      13,
+      51828
+    ]
+  }
+}

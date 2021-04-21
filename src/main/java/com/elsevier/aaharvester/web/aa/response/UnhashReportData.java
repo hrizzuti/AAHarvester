@@ -1,13 +1,14 @@
 package com.elsevier.aaharvester.web.aa.response;
 
-import com.elsevier.aaharvester.model.Column;
-import com.elsevier.aaharvester.model.Row;
+import com.elsevier.aaharvester.model.RowItem;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @NoArgsConstructor
-public class ReportsResponse {
+public class UnhashReportData {
 
     private int totalPages;
 
@@ -25,7 +26,17 @@ public class ReportsResponse {
 
     private String reportId;
 
-    private Column column;
+    private String searchAnd;
 
-    private Row row;
+    private String searchOr;
+
+    private String searchNot;
+
+    private String searchPhrase;
+
+    private String oberonRequestXML;
+
+    private String oberonResponseXML;
+
+    private List<RowItem> rows;
 }

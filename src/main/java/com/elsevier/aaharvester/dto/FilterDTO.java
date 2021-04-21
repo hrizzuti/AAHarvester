@@ -1,12 +1,12 @@
-package com.elsevier.aaharvester.model;
+package com.elsevier.aaharvester.dto;
 
 import com.elsevier.aaharvester.model.enumerator.ReportFiltersType;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor
-public class ReportFilter {
+@Builder
+public class FilterDTO {
 
     private String id;
 
@@ -16,7 +16,11 @@ public class ReportFilter {
 
     private String itemId;
 
+    private String itemName;
+
     private String segmentId;
+
+    private String segmentName;
 
     private String dateRange;
 }
