@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Column {
 
-    private List<Integer> columnIds;
+    private List<String> columnIds;
 
     private ReportDimension reportDimension;
 }

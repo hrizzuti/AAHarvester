@@ -1,7 +1,7 @@
-package com.elsevier.aaharvester.web.aa.request.util;
+package com.elsevier.aaharvester.web.request.util;
 
-import com.elsevier.aaharvester.web.aa.request.ReportRequest;
-import com.elsevier.aaharvester.web.aa.util.RequestMapper;
+import com.elsevier.aaharvester.web.request.ReportRequest;
+import com.elsevier.aaharvester.web.util.RequestMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.elsevier.aaharvester.dto;
+package com.elsevier.aaharvester.resource;
 
 import com.elsevier.aaharvester.model.enumerator.ReportFiltersType;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class FilterDTO {
+public class FilterResource {
 
     private String id;
 

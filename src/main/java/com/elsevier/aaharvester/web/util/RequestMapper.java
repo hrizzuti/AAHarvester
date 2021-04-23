@@ -1,6 +1,6 @@
-package com.elsevier.aaharvester.web.aa.util;
+package com.elsevier.aaharvester.web.util;
 
-import com.elsevier.aaharvester.web.aa.request.ReportRequest;
+import com.elsevier.aaharvester.web.request.ReportRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;

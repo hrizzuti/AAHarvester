@@ -1,4 +1,4 @@
-package com.elsevier.aaharvester.web.aa.request;
+package com.elsevier.aaharvester.web.request;
 
 import com.elsevier.aaharvester.model.MetricContainer;
 import com.elsevier.aaharvester.model.ReportFilter;

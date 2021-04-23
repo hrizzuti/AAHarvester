@@ -1,4 +1,4 @@
-package com.elsevier.aaharvester.web.aa.response;
+package com.elsevier.aaharvester.web.response;
 
 import com.elsevier.aaharvester.model.RowItem;
 import lombok.Getter;
