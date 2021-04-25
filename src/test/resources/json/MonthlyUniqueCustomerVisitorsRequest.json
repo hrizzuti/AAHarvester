@@ -1,0 +1,84 @@
+{
+  "rsid": "vrs_elsevi3_rapglobalprod2016",
+  "globalFilters": [
+    {
+      "type": "segment",
+      "segmentId": "s300000520_59f70cca59161d3f657c317e"
+    },
+    {
+      "type": "segment",
+      "segmentId": "s300000520_5e46b1f9cfb25243927add7d"
+    },
+    {
+      "type": "dateRange",
+      "dateRange": "2019-01-01T00:00:00.000/2019-02-01T00:00:00.000"
+    }
+  ],
+  "metricContainer": {
+    "metrics": [
+      {
+        "columnId": "0",
+        "id": "metrics/visitors"
+      },
+      {
+        "columnId": "1",
+        "id": "cm300000520_5b707a98b0178525004feb29"
+      },
+      {
+        "columnId": "3",
+        "id": "cm300000520_5b707a98b0178525004feb29",
+        "filters": [
+          "0"
+        ]
+      },
+      {
+        "columnId": "4",
+        "id": "cm300000520_5b707a98b0178525004feb29",
+        "filters": [
+          "1"
+        ]
+      },
+      {
+        "columnId": "5",
+        "id": "cm300000520_5b707a98b0178525004feb29",
+        "filters": [
+          "2"
+        ]
+      }
+    ],
+    "metricFilters": [
+      {
+        "id": "0",
+        "type": "breakdown",
+        "dimension": "variables/evar4",
+        "itemId": "1543422543"
+      },
+      {
+        "id": "1",
+        "type": "breakdown",
+        "dimension": "variables/evar4",
+        "itemId": "3817925996"
+      },
+      {
+        "id": "2",
+        "type": "breakdown",
+        "dimension": "variables/evar4",
+        "itemId": "3453045860"
+      }
+    ]
+  },
+  "dimension": "variables/daterangemonth",
+  "settings": {
+    "countRepeatInstances": true,
+    "limit": 400,
+    "page": 0,
+    "dimensionSort": "asc",
+    "nonesBehavior": "return-nones"
+  },
+  "statistics": {
+    "functions": [
+      "col-max",
+      "col-min"
+    ]
+  }
+}

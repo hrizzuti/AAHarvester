@@ -20,17 +20,17 @@ import java.util.stream.Collectors;
 @Service
 public class ItemLookupServiceImpl implements LookupService {
 
-//    private AARestClient aaRestClient;
-//
-//    public ItemLookupServiceImpl(final AARestClient aaRestClient) {
-//        this.aaRestClient = aaRestClient;
-//    }
+    private AARestClient aaRestClient;
 
-    private ObjectMapper objectMapper;
-
-    public ItemLookupServiceImpl(final ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
+    public ItemLookupServiceImpl(final AARestClient aaRestClient) {
+        this.aaRestClient = aaRestClient;
     }
+
+//    private ObjectMapper objectMapper;
+//
+//    public ItemLookupServiceImpl(final ObjectMapper objectMapper) {
+//        this.objectMapper = objectMapper;
+//    }
 
     public Map<String, String> getLookup(final ReportRequest reportRequest) throws IOException {
 
@@ -44,13 +44,13 @@ public class ItemLookupServiceImpl implements LookupService {
             return new HashMap<>();
         }
 
-//        final String url = String.format("/reports/topItems?rsid=%s&dimension=%s&limit=100", reportRequest.getRsId(), reportRequest.getDimension());
-//        final ResponseEntity<UnhashReportData> unhashReportDataResponseEntity = aaRestClient.get(url, UnhashReportData.class);
-//        final UnhashReportData unhashReportData = unhashReportDataResponseEntity.getBody();
+        final String url = String.format("/reports/topItems?rsid=%s&dimension=%s&limit=100", reportRequest.getRsId(), reportRequest.getDimension());
+        final ResponseEntity<UnhashReportData> unhashReportDataResponseEntity = aaRestClient.get(url, UnhashReportData.class);
+        final UnhashReportData unhashReportData = unhashReportDataResponseEntity.getBody();
 
-        final Path topItemsPath = Path.of(this.getClass().getClassLoader().getResource("json/topItemsResponse.json").getPath());
-        final String topItemsJson = Files.readString(topItemsPath, StandardCharsets.UTF_8);
-        final UnhashReportData unhashReportData = objectMapper.readValue(topItemsJson, UnhashReportData.class);
+//        final Path topItemsPath = Path.of(this.getClass().getClassLoader().getResource("json/topItemsResponse.json").getPath());
+//        final String topItemsJson = Files.readString(topItemsPath, StandardCharsets.UTF_8);
+//        final UnhashReportData unhashReportData = objectMapper.readValue(topItemsJson, UnhashReportData.class);
 
         return unhashReportData.getRows()
                                .stream()

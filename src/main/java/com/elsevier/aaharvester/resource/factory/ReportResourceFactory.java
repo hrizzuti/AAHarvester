@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Objects.nonNull;
+
 @Component
 public class ReportResourceFactory {
 
@@ -24,6 +26,7 @@ public class ReportResourceFactory {
     public ReportResource getInstance(final ReportRequest reportRequest,
                                       final Map<String, String> segmentsLookup,
                                       final Map<String, String> itemsLookup,
+                                      final Map<String, String> metricLookup,
                                       final AnalyticsDimension dimensionResponse) {
 
         final ReportResource.ReportResourceBuilder reportResourceBuilder = ReportResource.builder();
@@ -54,16 +57,18 @@ public class ReportResourceFactory {
         });
 
         reportRequest.getMetricContainer().getMetrics().forEach(metric -> {
-            final List<FilterResource> filters = new ArrayList<>();
+            final List<FilterResource> filterResources = new ArrayList<>();
 
-            metric.getFilters().forEach(f -> {
-                filters.add(filterMap.get(f));
-            });
+            final List<String> filters = metric.getFilters();
+
+            if (nonNull(filters)) {
+                filters.forEach(f -> filterResources.add(filterMap.get(f)));
+            }
 
             metricDTOMap.put(metric.getColumnId(), MetricResource.builder()
                                                                  .columnId(metric.getColumnId())
-                                                                 .name(metric.getId())
-                                                                 .filters(filters)
+                                                                 .name(metricLookup.get(metric.getId()))
+                                                                 .filters(filterResources)
                                                                  .build());
         });
 

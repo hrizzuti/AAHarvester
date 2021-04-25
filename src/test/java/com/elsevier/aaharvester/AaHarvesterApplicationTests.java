@@ -20,7 +20,7 @@ class AaHarvesterApplicationTests {
 
     @Test
     public void shouldConvertJsonToRequest() throws IOException {
-        final Path path = Path.of(this.getClass().getClassLoader().getResource("json/reportsRequest.json").getPath());
+        final Path path = Path.of(this.getClass().getClassLoader().getResource("json/SdOrganicSearchVisitsRequest.json").getPath());
         final String reportsJson = Files.readString(path, StandardCharsets.UTF_8);
         final List<List<ReportData>> reportRows = metricService.processMetric(reportsJson);
         reportRows.stream().forEach(r -> r.stream().forEach(System.out::println));

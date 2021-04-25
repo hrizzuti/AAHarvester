@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 public class RowItem {
 
     private String itemId;
+
     private String value;
 
 }

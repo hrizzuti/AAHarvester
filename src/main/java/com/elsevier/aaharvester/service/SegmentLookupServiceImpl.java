@@ -24,17 +24,17 @@ import java.util.stream.Stream;
 @Service
 public class SegmentLookupServiceImpl implements LookupService {
 
-//    private AARestClient aaRestClient;
-//
-//    public SegmentLookupServiceImpl(final AARestClient aaRestClient) {
-//        this.aaRestClient = aaRestClient;
-//    }
+    private AARestClient aaRestClient;
 
-    private ObjectMapper objectMapper;
-
-    public SegmentLookupServiceImpl(final ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
+    public SegmentLookupServiceImpl(final AARestClient aaRestClient) {
+        this.aaRestClient = aaRestClient;
     }
+
+//    private ObjectMapper objectMapper;
+//
+//    public SegmentLookupServiceImpl(final ObjectMapper objectMapper) {
+//        this.objectMapper = objectMapper;
+//    }
 
     public Map<String, String> getLookup(final ReportRequest reportRequest) throws IOException {
 
@@ -58,13 +58,13 @@ public class SegmentLookupServiceImpl implements LookupService {
                                                                   .flatMap(Collection::stream)
                                                                   .collect(Collectors.toList()));
 
-//        final String url = String.format("/segments?rsid=%s&segmentFilter=%s", reportRequest.getRsId(), combinedSegmentsIds);
-//        final ResponseEntity<SegmentsResponse> segmentsResponseResponseEntity = aaRestClient.get(url, SegmentsResponse.class);
-//        final SegmentsResponse segmentsResponse = segmentsResponseResponseEntity.getBody();
+        final String url = String.format("/segments?rsid=%s&segmentFilter=%s", reportRequest.getRsId(), combinedSegmentsIds);
+        final ResponseEntity<SegmentsResponse> segmentsResponseResponseEntity = aaRestClient.get(url, SegmentsResponse.class);
+        final SegmentsResponse segmentsResponse = segmentsResponseResponseEntity.getBody();
 
-        final Path segmentsPath = Path.of(this.getClass().getClassLoader().getResource("json/segmentsResponse.json").getPath());
-        final String segmentsJson = Files.readString(segmentsPath, StandardCharsets.UTF_8);
-        final SegmentsResponse segmentsResponse = objectMapper.readValue(segmentsJson, SegmentsResponse.class);
+//        final Path segmentsPath = Path.of(this.getClass().getClassLoader().getResource("json/segmentsResponse.json").getPath());
+//        final String segmentsJson = Files.readString(segmentsPath, StandardCharsets.UTF_8);
+//        final SegmentsResponse segmentsResponse = objectMapper.readValue(segmentsJson, SegmentsResponse.class);
 
         return segmentsResponse.getContent()
                                .stream()

@@ -1,0 +1,113 @@
+{
+  "rsid": "vrs_elsevi3_rapglobalprod2016",
+  "globalFilters": [
+    {
+      "type": "dateRange",
+      "dateRange": "2020-04-01T00:00:00.000/2020-04-08T00:00:00.000"
+    }
+  ],
+  "metricContainer": {
+    "metrics": [
+      {
+        "columnId": "2",
+        "id": "metrics/visits",
+        "filters": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "columnId": "3",
+        "id": "metrics/visits",
+        "filters": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "columnId": "7",
+        "id": "metrics/visits",
+        "filters": [
+          "4",
+          "5",
+          "6"
+        ]
+      },
+      {
+        "columnId": "8",
+        "id": "metrics/visits",
+        "filters": [
+          "7",
+          "8",
+          "9"
+        ]
+      }
+    ],
+    "metricFilters": [
+      {
+        "id": "0",
+        "type": "segment",
+        "segmentId": "s300000520_59f70cca59161d3f657c317e"
+      },
+      {
+        "id": "1",
+        "type": "segment",
+        "segmentId": "s300000520_5da43ed0e50ca06a5a72eb54"
+      },
+      {
+        "id": "2",
+        "type": "segment",
+        "segmentId": "s300000520_5cb477597097ba01bcf8300d"
+      },
+      {
+        "id": "3",
+        "type": "segment",
+        "segmentId": "s300000520_5da43ed0e50ca06a5a72eb54"
+      },
+      {
+        "id": "4",
+        "type": "segment",
+        "segmentId": "s300000520_59f70cca59161d3f657c317e"
+      },
+      {
+        "id": "5",
+        "type": "segment",
+        "segmentId": "s300000520_5d9f448134d05f4062bb90ec"
+      },
+      {
+        "id": "6",
+        "type": "segment",
+        "segmentId": "s300000520_5a8d9dc9f30aae741b167c1b"
+      },
+      {
+        "id": "7",
+        "type": "segment",
+        "segmentId": "s300000520_5cb47b2c0725627f25a6900b"
+      },
+      {
+        "id": "8",
+        "type": "segment",
+        "segmentId": "s300000520_5d9f448134d05f4062bb90ec"
+      },
+      {
+        "id": "9",
+        "type": "segment",
+        "segmentId": "s300000520_5a8d9dc9f30aae741b167c1b"
+      }
+    ]
+  },
+  "dimension": "variables/daterangemonth",
+  "settings": {
+    "countRepeatInstances": true,
+    "limit": 400,
+    "page": 0,
+    "dimensionSort": "asc",
+    "nonesBehavior": "return-nones"
+  },
+  "statistics": {
+    "functions": [
+      "col-max",
+      "col-min"
+    ]
+  }
+}
