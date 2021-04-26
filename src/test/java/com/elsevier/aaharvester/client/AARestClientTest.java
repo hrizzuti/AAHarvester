@@ -36,7 +36,7 @@ class AARestClientTest {
 
     @Test
     public void shouldCallAAReport() throws IOException {
-        final Path path = Path.of(this.getClass().getClassLoader().getResource("json/reportsRequest.json").getPath());
+        final Path path = Path.of(this.getClass().getClassLoader().getResource("json/digitalCommonsRequest.json").getPath());
         final String request = Files.readString(path, StandardCharsets.UTF_8);
         final ResponseEntity<ReportResponse> result = aaRestClient.post("/reports", request, ReportResponse.class);
         //final Path path = Path.of(this.getClass().getClassLoader().getResource("json/reportsResponse.json").getPath());

@@ -17,7 +17,7 @@ class RequestMapperTest {
     @Test
     public void shouldConvertJsonToRequest() throws IOException {
         final RequestMapper mapper = new RequestMapper(new ObjectMapper());
-        final Path path = Path.of(this.getClass().getClassLoader().getResource("json/reportsRequest.json").getPath());
+        final Path path = Path.of(this.getClass().getClassLoader().getResource("json/digitalCommonsRequest.json").getPath());
         final String jsonRequest = Files.readString(path, StandardCharsets.UTF_8);
         ReportRequest reportRequest = mapper.toAAReports(jsonRequest);
         assertEquals(2, reportRequest.getGlobalFilters().size());

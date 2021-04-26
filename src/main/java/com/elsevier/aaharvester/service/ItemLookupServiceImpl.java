@@ -1,21 +1,18 @@
 package com.elsevier.aaharvester.service;
 
 import com.elsevier.aaharvester.client.AARestClient;
-import com.elsevier.aaharvester.model.RowItem;
+import com.elsevier.aaharvester.model.ReportFilter;
 import com.elsevier.aaharvester.model.enumerator.ReportFiltersType;
 import com.elsevier.aaharvester.web.request.ReportRequest;
 import com.elsevier.aaharvester.web.response.UnhashReportData;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 @Service
 public class ItemLookupServiceImpl implements LookupService {
@@ -34,26 +31,37 @@ public class ItemLookupServiceImpl implements LookupService {
 
     public Map<String, String> getLookup(final ReportRequest reportRequest) throws IOException {
 
-        final long itemsCount = reportRequest.getMetricContainer()
-                                             .getMetricFilters()
-                                             .stream()
-                                             .filter(mf -> ReportFiltersType.BREAKDOWN == mf.getType())
-                                             .count();
+        final Map<String, String> itemsLookup = new HashMap<>();
+
+        final Supplier<Stream<ReportFilter>> reportFilterStream = () -> reportRequest.getMetricContainer()
+                                                                                     .getMetricFilters()
+                                                                                     .stream()
+                                                                                     .filter(mf -> ReportFiltersType.BREAKDOWN == mf.getType());
+
+        final long itemsCount = reportFilterStream.get().count();
+
 
         if (itemsCount == 0) {
-            return new HashMap<>();
+            return itemsLookup;
         }
 
-        final String url = String.format("/reports/topItems?rsid=%s&dimension=%s&limit=100", reportRequest.getRsId(), reportRequest.getDimension());
-        final ResponseEntity<UnhashReportData> unhashReportDataResponseEntity = aaRestClient.get(url, UnhashReportData.class);
-        final UnhashReportData unhashReportData = unhashReportDataResponseEntity.getBody();
+        final Stream<String> dimensions = reportFilterStream.get().map(f -> f.getDimension()).distinct();
+
+        dimensions.forEach(d -> {
+            final String url = String.format("/reports/topItems?rsid=%s&dimension=%s&limit=100", reportRequest.getRsId(), d);
+            final ResponseEntity<UnhashReportData> unhashReportDataResponseEntity = aaRestClient.get(url, UnhashReportData.class);
+            final UnhashReportData unhashReportData = unhashReportDataResponseEntity.getBody();
+            unhashReportData.getRows()
+                            .stream().forEach(r -> {
+                itemsLookup.put(r.getItemId(), r.getValue());
+            });
+        });
+
 
 //        final Path topItemsPath = Path.of(this.getClass().getClassLoader().getResource("json/topItemsResponse.json").getPath());
 //        final String topItemsJson = Files.readString(topItemsPath, StandardCharsets.UTF_8);
 //        final UnhashReportData unhashReportData = objectMapper.readValue(topItemsJson, UnhashReportData.class);
 
-        return unhashReportData.getRows()
-                               .stream()
-                               .collect(Collectors.toMap(RowItem::getItemId, RowItem::getValue));
+        return itemsLookup;
     }
 }

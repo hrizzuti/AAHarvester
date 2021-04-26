@@ -30,8 +30,6 @@ public class MetricServiceImpl {
 
     private AARestClient aaRestClient;
 
-    private ObjectMapper objectMapper;
-
     private SegmentLookupServiceImpl segmentLookupService;
 
     private ItemLookupServiceImpl itemLookupService;
@@ -42,7 +40,9 @@ public class MetricServiceImpl {
 
     private MetricLookupServiceImpl metricLookupService;
 
-/*    public MetricServiceImpl(final ObjectMapper objectMapper,
+/*    private ObjectMapper objectMapper;
+
+    public MetricServiceImpl(final ObjectMapper objectMapper,
                              final SegmentLookupServiceImpl segmentLookupService,
                              final ItemLookupServiceImpl itemLookupService,
                              final ReportResourceFactory reportResourceFactory,
